@@ -8,9 +8,14 @@ namespace AdventOfCode2024.Solutions
 {
     public class SolutionDay2 : SolutionBase
     {
-        public override string ExecuteSolution(string[] lines)
+        public override string ExecuteSolutionPartOne(string[] lines)
         {
             throw new NotImplementedException("Day2");
+        }
+
+        public override string ExecuteSolutionPartTwo(string[] lines)
+        {
+            throw new NotImplementedException();
         }
     }
 }
