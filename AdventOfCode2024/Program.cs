@@ -1,5 +1,6 @@
 ﻿using AdventOfCode2024.Helpers;
 using System;
+using System.Diagnostics;
 
 namespace AdventOfCode
 {
@@ -14,8 +15,10 @@ namespace AdventOfCode
 
             try
             {
+                var stopwatch = Stopwatch.StartNew();
                 var answer1 = solutionExecutor.ExecuteSolutionPartOne(input);
-                Console.WriteLine("The answer to part one is: " + answer1);
+                stopwatch.Stop();
+                Console.WriteLine($"The answer to part one is: {answer1} in a time of {stopwatch.ElapsedMilliseconds}ms");
             } 
             catch(Exception e)
             {
@@ -23,8 +26,10 @@ namespace AdventOfCode
             }
             try
             {
+                var stopwatch = Stopwatch.StartNew();
                 var answer2 = solutionExecutor.ExecuteSolutionPartTwo(input);
-                Console.WriteLine("The answer to part two is: " + answer2);
+                stopwatch.Stop();
+                Console.WriteLine($"The answer to part two is: {answer2} in a time of {stopwatch.ElapsedMilliseconds}ms");
             } 
             catch(Exception e)
             {
