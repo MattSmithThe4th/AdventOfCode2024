@@ -1,5 +1,5 @@
 ﻿using AdventOfCode2024.Helpers;
-using System;
+using AdventOfCode2024.Solutions;
 using System.Diagnostics;
 
 namespace AdventOfCode
@@ -10,7 +10,18 @@ namespace AdventOfCode
         {
             Console.WriteLine("Write the number of day to get the solution of\n");
             var day = Console.ReadLine();
-            var solutionExecutor = SolutionFactory.GetInstance(day);
+            SolutionBase solutionExecutor;
+            try
+            {
+                solutionExecutor = SolutionFactory.GetInstance(day);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                return;
+            }
+
+
             var input = IOHandler.GetInput("Day" + day);
 
             try

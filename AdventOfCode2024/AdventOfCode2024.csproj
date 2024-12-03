@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="xcopy /E /I /Y &quot;$(ProjectDir)Input&quot; &quot;$(OutDir)Input&quot;" />
+    <Exec Command="RD /S /Q &quot;$(TargetDir)Input&quot;&#xD;&#xA;xcopy /E /I /Y &quot;$(ProjectDir)Input&quot; &quot;$(OutDir)Input&quot;" />
   </Target>
 
 </Project>
