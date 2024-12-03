@@ -10,12 +10,32 @@ namespace AdventOfCode
         {
             Console.WriteLine("Write the number of day to get the solution of\n");
             var day = Console.ReadLine();
+
+            if (day == "all")
+            {
+                RunAllDays();
+            }
+            else
+            {
+                RunSingleDay(day);
+            }
+        }
+
+        private static void RunAllDays()
+        {
+            for (int i = 1; i <= 25; i++)
+            {
+                RunSingleDay(i.ToString());
+            }
+        }
+
+        private static void RunSingleDay(string day)
+        {
             SolutionBase solutionExecutor;
             try
             {
                 solutionExecutor = SolutionFactory.GetInstance(day);
-            }
-            catch (Exception ex)
+            } catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 return;
@@ -29,7 +49,7 @@ namespace AdventOfCode
                 var stopwatch = Stopwatch.StartNew();
                 var answer1 = solutionExecutor.ExecuteSolutionPartOne(input);
                 stopwatch.Stop();
-                Console.WriteLine($"The answer to part one is: {answer1} in a time of {stopwatch.ElapsedMilliseconds}ms");
+                Console.WriteLine($"Day {day} part one: {answer1} in a time of {stopwatch.ElapsedMilliseconds}ms");
             } 
             catch(Exception e)
             {
@@ -40,12 +60,14 @@ namespace AdventOfCode
                 var stopwatch = Stopwatch.StartNew();
                 var answer2 = solutionExecutor.ExecuteSolutionPartTwo(input);
                 stopwatch.Stop();
-                Console.WriteLine($"The answer to part two is: {answer2} in a time of {stopwatch.ElapsedMilliseconds}ms");
+                Console.WriteLine($"Day {day} part two: {answer2} in a time of {stopwatch.ElapsedMilliseconds}ms");
             } 
             catch(Exception e)
             {
                 Console.WriteLine("Error was thrown for implementation 2 with message: " + e.Message);
             }
+            Console.WriteLine();
         }
+
     }
 }
