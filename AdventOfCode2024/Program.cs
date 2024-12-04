@@ -15,6 +15,12 @@ namespace AdventOfCode
             {
                 RunAllDays();
             }
+            else if (day == "test")
+            {
+                Console.WriteLine("Running test code");
+                CodeTest.Test();
+                Console.WriteLine("Finished test code");
+            }
             else
             {
                 RunSingleDay(day);
