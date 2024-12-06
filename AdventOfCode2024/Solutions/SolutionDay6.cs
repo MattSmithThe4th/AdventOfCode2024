@@ -48,12 +48,13 @@ namespace AdventOfCode2024.Solutions
         public override string ExecuteSolutionPartTwo(string[] lines)
         {
             var result = 0;
+            var toCheck = GetCoordinatesCheck(lines);
 
             for (int i = 0; i < lines.Length; i++)
             {
                 for (int j = 0; j < lines[i].Length; j++)
                 {
-                    if (lines[i][j] == '#' || lines[i][j] == '^')
+                    if (lines[i][j] == '#' || lines[i][j] == '^' || !toCheck.Contains((i, j)))
                     {
                         continue;
                     }
@@ -98,6 +99,35 @@ namespace AdventOfCode2024.Solutions
 
 
             return result.ToString();
+        }
+
+        private HashSet<(int, int)> GetCoordinatesCheck(string[] lines)
+        {
+            var guard = GetStartingPosition(lines);
+            var passed = new HashSet<(int, int)>();
+
+            while(true)
+            {
+                passed.Add((guard.X, guard.Y));
+                char nextPosition;
+                try
+                {
+                    nextPosition = ReadNext(lines, guard);
+                } catch
+                {
+                    break;
+                }
+
+                if(nextPosition == '#')
+                {
+                    guard.Rotate();
+                } else
+                {
+                    guard.Move();
+                }
+            }
+
+            return passed;
         }
 
         private Guard GetStartingPosition(string[] lines)
