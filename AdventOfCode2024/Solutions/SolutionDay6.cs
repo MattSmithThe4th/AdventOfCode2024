@@ -10,7 +10,6 @@ namespace AdventOfCode2024.Solutions
             {Direction.Right, (0, +1)},
             {Direction.Down, (+1, 0)},
             {Direction.Left, (0, -1)}
-            
         };
 
 
@@ -96,7 +95,6 @@ namespace AdventOfCode2024.Solutions
                     lines[i] = string.Join(string.Empty, newLine);
                 }
             }
-
 
             return result.ToString();
         }

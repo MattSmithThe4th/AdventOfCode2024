@@ -65,9 +65,7 @@ namespace AdventOfCode2024.Solutions
                 resultList.Add(pages.First());
 
                 result += Convert.ToInt32(resultList[resultList.Count() / 2]);
-
             }
-
 
             return result.ToString();
         }
