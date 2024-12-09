@@ -4,7 +4,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace AdventOfCode2024.Solutions
 {
@@ -73,6 +72,7 @@ namespace AdventOfCode2024.Solutions
                     {
                         diskMap[i] = diskMap[j];
                         diskMap[j] = value;
+                        AddupEmptySpace(diskMap);
                         break;
                     }
                     else if (!diskMap[j].IsData && diskMap[j].BlockSize > value.BlockSize)
@@ -83,10 +83,10 @@ namespace AdventOfCode2024.Solutions
                         diskMap[j] = value;
                         diskMap.Insert(j + 1, new Block(0, extraSpace, false));
                         i++;
+                        AddupEmptySpace(diskMap);
                         break;
                     }
                 }
-                AddupEmptySpace(diskMap);
             }
 
             var disk = new List<int>();
