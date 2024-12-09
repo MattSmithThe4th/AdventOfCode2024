@@ -48,7 +48,6 @@ namespace AdventOfCode2024.Solutions
 
         private int FindCrossedMAS(string[] lines, int x, int y)
         {
-            var xmasCount = 0;
             var dict = GetSurrounding(lines, x, y);
             if (dict.Count != 8)
             {
@@ -136,7 +135,7 @@ namespace AdventOfCode2024.Solutions
                 {
                     dict.Add(kvp.Key, lines[x + kvp.Value.Item1][y + kvp.Value.Item2]);
                 }
-                catch (Exception e)
+                catch
                 {
                     //intentionally empty
                 }
