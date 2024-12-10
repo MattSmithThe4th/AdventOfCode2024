@@ -1,18 +1,10 @@
-﻿using System;
+﻿using AdventOfCode2024.Helpers;
+using System;
 
 namespace AdventOfCode2024.Solutions
 {
     public class SolutionDay6 : SolutionBase
     {
-        private static Dictionary<Direction, (int, int)> Transform = new Dictionary<Direction, (int, int)>
-        {
-            {Direction.Up, (-1, 0)},
-            {Direction.Right, (0, +1)},
-            {Direction.Down, (+1, 0)},
-            {Direction.Left, (0, -1)}
-        };
-
-
         public override string ExecuteSolutionPartOne(string[] lines)
         {
             var guard = GetStartingPosition(lines);
@@ -143,7 +135,7 @@ namespace AdventOfCode2024.Solutions
 
         private char ReadNext(string[] lines, Guard guard)
         {
-            return lines[guard.X + Transform[guard.Direction].Item1][guard.Y + Transform[guard.Direction].Item2];
+            return lines[guard.X + Helper.Transform[guard.Direction].Item1][guard.Y + Helper.Transform[guard.Direction].Item2];
         }
 
         private class Guard
@@ -172,17 +164,9 @@ namespace AdventOfCode2024.Solutions
 
             public void Move()
             {
-                X = X + Transform[Direction].Item1;
-                Y = Y + Transform[Direction].Item2;
+                X = X + Helper.Transform[Direction].Item1;
+                Y = Y + Helper.Transform[Direction].Item2;
             }
-        }
-
-        private enum Direction
-        {
-            Up,
-            Right,
-            Down,
-            Left
         }
     }
 }
