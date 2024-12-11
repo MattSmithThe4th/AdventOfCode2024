@@ -25,6 +25,8 @@ namespace AdventOfCode
             {
                 RunSingleDay(day);
             }
+            Console.WriteLine("Program finished. Press any key to exit");
+            Console.ReadKey(true);
         }
 
         private static void RunAllDays()
