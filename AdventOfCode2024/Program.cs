@@ -8,7 +8,7 @@ namespace AdventOfCode
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Write the number of day to get the solution of\n");
+            Console.Write("Write the number of day to get the solution of: ");
             var day = Console.ReadLine();
 
             if (day == "all")
@@ -43,7 +43,8 @@ namespace AdventOfCode
             try
             {
                 solutionExecutor = SolutionFactory.GetInstance(day);
-            } catch(Exception ex)
+            } 
+            catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 return;

@@ -19,6 +19,7 @@ namespace AdventOfCode2024.Helpers
                 "9" => new SolutionDay9(),
                 "10" => new SolutionDay10(),
                 "11" => new SolutionDay11(),
+                "12" => new SolutionDay12(),
                 _ => throw new NotImplementedException($"Day '{day}' has not been implemented")
             };
         }
