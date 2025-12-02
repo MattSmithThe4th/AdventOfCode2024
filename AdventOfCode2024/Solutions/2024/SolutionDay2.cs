@@ -1,6 +1,6 @@
 ﻿using AdventOfCode2024.Helpers;
 
-namespace AdventOfCode2024.Solutions
+namespace AdventOfCode2024.Solutions._2024
 {
     public class SolutionDay2 : SolutionBase
     {

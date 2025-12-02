@@ -6,7 +6,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AdventOfCode2024.Solutions
+namespace AdventOfCode2024.Solutions._2024
 {
     public class SolutionDay11 : SolutionBase
     {

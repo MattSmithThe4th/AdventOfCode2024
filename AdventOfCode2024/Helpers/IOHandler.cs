@@ -4,9 +4,9 @@ namespace AdventOfCode2024.Helpers
     public static class IOHandler
     {
 
-        public static string[] GetInput(string filename)
+        public static string[] GetInput(string year, string filename)
         {
-            return File.ReadLines("Input/" + filename + ".txt").ToArray();
+            return File.ReadLines($"Input/{year}/{filename}.txt").ToArray();
         }
     }
 }

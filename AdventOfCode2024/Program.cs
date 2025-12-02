@@ -1,4 +1,5 @@
-﻿using AdventOfCode2024.Helpers;
+﻿using AdventOfCode.Helpers;
+using AdventOfCode2024.Helpers;
 using AdventOfCode2024.Solutions;
 using System.Diagnostics;
 
@@ -10,10 +11,16 @@ namespace AdventOfCode
         {
             Console.Write("Write the number of day to get the solution of: ");
             var day = Console.ReadLine();
+            var year = DateTime.Now.Year.ToString();
+
+            if (args.Length > 0)
+            {
+                year = args[0];
+            }
 
             if (day == "all")
             {
-                RunAllDays();
+                RunAllDays(year);
             }
             else if (day == "test")
             {
@@ -23,26 +30,33 @@ namespace AdventOfCode
             }
             else
             {
-                RunSingleDay(day);
+                RunSingleDay(year, day);
             }
             Console.WriteLine("Program finished. Press any key to exit");
             Console.ReadKey(true);
         }
 
-        private static void RunAllDays()
+        private static void RunAllDays(string year)
         {
             for (int i = 1; i <= 25; i++)
             {
-                RunSingleDay(i.ToString());
+                RunSingleDay(year, i.ToString());
             }
         }
 
-        private static void RunSingleDay(string day)
+        private static void RunSingleDay(string year, string day)
         {
             SolutionBase solutionExecutor;
+            ISolutionFactory solutionFactory = year switch
+            {
+                "2024" => new SolutionFactory2024(),
+                "2025" => new SolutionFactory2025(),
+                _ => throw new NotImplementedException()
+            };
+
             try
             {
-                solutionExecutor = SolutionFactory.GetInstance(day);
+                solutionExecutor = solutionFactory.GetInstance(day);
             } 
             catch(Exception ex)
             {
@@ -51,7 +65,7 @@ namespace AdventOfCode
             }
 
 
-            var input = IOHandler.GetInput("Day" + day);
+            var input = IOHandler.GetInput(year, "Day" + day);
 
             try
             {
